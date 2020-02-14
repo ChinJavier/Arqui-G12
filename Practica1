@@ -324,7 +324,7 @@ void pintarLedControlAbAr(byte fila){
 }
  void Mostrar(byte buffer2[]){    
  
-  while(minimo<147 && digitalRead(40)== LOW&&digitalRead(49)==LOW){
+  while(minimo<147 && digitalRead(40)== LOW&&digitalRead(50)==LOW){
       velocidad = analogRead(A0);
       int cont = 0;
       for (int i = minimo; i < (minimo+8); i++) {
@@ -346,7 +346,7 @@ void pintarLedControlAbAr(byte fila){
         minimo=0;
       }
    }
-   while(minimo>=0 && digitalRead(40)== HIGH&&digitalRead(49)==LOW){
+   while(minimo>=0 && digitalRead(40)== HIGH&&digitalRead(50)==LOW){
       velocidad = analogRead(A0);
       int cont = 0;  
       for (int i = minimo; i < (minimo+8); i++) {             
@@ -407,13 +407,13 @@ void setPad() {
      
         }
     }
-/*     if(digitalRead(49)==HIGH){
+    if(digitalRead(49)==HIGH){
       if(xpad<6){
            xpad++;
         
       }
      }
-     */
+     
 }
 
 int hitFirst() {
@@ -616,12 +616,12 @@ void loop() {
 int current=0;
 int cntMenu=0;
   if(showing==0){
-    if(digitalRead(49)==LOW){
+    if(digitalRead(50)==LOW){
 
     Mostrar(letrero2);
     }else{
       cntMenu=0;
-        while(digitalRead(49)==HIGH){
+        while(digitalRead(50)==HIGH){
         delay(1000);
        cntMenu++;
     if(cntMenu == 3){
@@ -676,7 +676,7 @@ int cntMenu=0;
     }
 
    cntMenu=0;
-   while(digitalRead(49)==HIGH){
+   while(digitalRead(50)==HIGH){
        delay(1000);
        lc.clearDisplay(0);
        showing=2;
@@ -686,7 +686,7 @@ int cntMenu=0;
 }
  else if(showing == 2){
         cntMenu=0;
-   while(digitalRead(49)==HIGH){
+   while(digitalRead(50)==HIGH){
        delay(1000);
        lc.clearDisplay(0);
        contar();
@@ -695,3 +695,7 @@ int cntMenu=0;
     }
       }
 }
+
+
+
+
